@@ -521,7 +521,7 @@ Outra opção realmente útil é `--pretty`. Esta opção muda a saída do log p
 	085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test code
 	a11bef06a3f659402fe7563abf99ad00de2209e6 first commit
 
-The most interesting option is `format`, which allows you to specify your own log output format. This is especially useful when you’re generating output for machine parsing — because you specify the format explicitly, you know it won’t change with updates to Git:
+A opção mais interessante é `format`, que permite a você especificar seu próprio formato de saída. Isso é especialmente útil quando você está gerando saída para parsing - porque vocẽ especifica o formato explicitamente, você sabe que ele não vai mudar com as atualizações do Git:
 
 	$ git log --pretty=format:"%h - %an, %ar : %s"
 	ca82a6d - Scott Chacon, 11 months ago : changed the verison number
@@ -742,7 +742,7 @@ Isso significa que podemos puxar contribuições de qualquer um desses usuários
 
 ### Adicionando Repositórios Remotos ###
 
-Eu mencionei e deu algumas demonstrações de adição de repositórios remotos nas seções anteriores, mas aqui está como fazê-lo explicitamente. Para adicionar um novo repositório remto no Git com um nome curto para que você possa fazer referência facilmente, execute `git remote add [nomecurto] [url]`:
+Eu mencionei e deu algumas demonstrações de adição de repositórios remotos nas seções anteriores, mas aqui está como fazê-lo explicitamente. Para adicionar um novo repositório remoto no Git com um nome curto para que você possa fazer referência facilmente, execute `git remote add [nomecurto] [url]`:
 
 	$ git remote
 	origin
@@ -751,7 +751,7 @@ Eu mencionei e deu algumas demonstrações de adição de repositórios remotos 
 	origin	git://github.com/schacon/ticgit.git
 	pb	git://github.com/paulboone/ticgit.git
 
-Agora você pode usar a string pb na linha de comando em lugar da URL completa. Por exemplo, se você quer fazer o fetch de todos os dados que Paul que você ainda não tem no seu repositório, você pode executar git fetch pb:
+Agora você pode usar a string pb na linha de comando em lugar da URL completa. Por exemplo, se você quer fazer o fetch de todos os dados que Paul tem e você ainda não tem no seu repositório, você pode executar git fetch pb:
 
 	$ git fetch pb
 	remote: Counting objects: 58, done.
@@ -776,17 +776,17 @@ Se você clonou um repositório, o comando automaticamente adiciona o remoto com
 
 Se você tem um branch configurado para acompanhar um branch remoto (veja a próxima seção e o Capítulo 3 para mais informações), você pode usar o comando `git pull` para automaticamente fazer o fetch e o merge de um branch remoto no seu branch atual. Essa pode ser uma maneira mais fácil ou confortável pra você; e por padrão, o comando `git clone` automaticamente configura seu branch local master para acompanhar o branch remoto master do servidor de onde você clonou (desde que o remoto tenha um branch master). Executar `git pull` geralmente busca os dados do servidor de onde você fez o clone originalmente e automaticamente tenta fazer o merge dele no código que você está trabalhando atualmente.
 
-### Pushing Para Seus Remotos ###
+### Enviando Para Seus Remotos ###
 
-Quando o seu projeto estiver pronto para ser compartilhado, você tem que enviá-lo para a fonte. O comando para isso é simples: `git push [nome-remoto] [branch]`. Se você quer enviar o seu branch master para o servidor `origin` (novamente, clonando normalmente define estes dois nomes para você automaticamente), então você rodar o comando abaixo para enviar o seu trabalho para o sevidor:
-  
+Quando você tem seu projeto no ponto que vocẽ quer compartilhar, você tem que envia-lo para o upstream. O comando para isso é simples: `git push [nome-do-remoto] [nome-do-branch]`. Se você quer enviar seu branch master para seu servidor `origin` (denovo, clonagem geralmente define ambos estes nomes para você automaticamente), então você pode rodar isso para enviar seu trabalho de volta para o servidor:
+
 	$ git push origin master
 
-Este comando funcionando apenas se você clonou de um servidor onde você tenha permissão para escrita e se ninguém mais enviou dados no meio tempo. Se você e mais alguém clonar ao mesmo tempo e você enviar suas modificações após a pessoa ter enviado as dela, o seu push será rejeitado. Você terá que pull as modificações deste outro alguém antes e incorporá-las às suas antes que você tenha permissão para enviá-las. Veja o Capítulo 3 para mais detalhes sobre como enviar suas modificações para servidores remotos. 
+Este comando funciona somente se vocẽ clonou de um servidor que você tem permissão de escrita e se ninguém enviou nesse meio tempo. Se vocẽ e outro alguém clonam ao mesmo tempo e ele envia para o upstream e então você envia para o upstream, seu envio será certamente regeitado. Você terá que baixar os trabalhos dele primeiro e incorporá-lo aos seus antes de você ser permitido a enviar. Veja capítulo 3 para informação mais detalhada sobre como enviar para servidores remotos.
 
 ### Inspecionando um Remoto ###	
 
-Se você quer ver mais informação sobre algum remoto particular, você pode usar o comando `git remote show [nome-remoto]`. Se você rodar este comando com um nome específico, como `origin`, você verá algo assim:
+Se você quer ver mais informações sobre um remoto em particular, você pode usar o comando `git remote show [nome-do-remoto]`. Se você executar este comando com um nome em particular, como `origin`, você terá algo como isso:
 
 	$ git remote show origin
 	* remote origin
@@ -797,9 +797,9 @@ Se você quer ver mais informação sobre algum remoto particular, você pode us
 	    master
 	    ticgit
 
-Ele lista a URL do repositório remoto assim como as branches sendo rastreadas. O resultado deste comando lhe diz que se você está na branch master e rodar `git pull`, ele irá automaticamente merge na branch master no remoto depois que ele fetch todas as referências remotas. Ele também lista todas as referências remotas que foram puxadas.
+Ele lista a URL para o repositório remoto assim como informações sobre seus branches. O comando fala a você que se vocẽ está no branch master e vocẽ executar `git pull`, ele automaticamente mesclará o branch master do remoto depois que ele buscar todas as referênciar. Ele ainda lista todas as referências do remoto que ele baixou. 
 
-O anterior é um resultado simples que você talvez encontre por aí. Entretanto, quando se usa o Git pra valer, você pode ver muito mais informação vindo de `git remote show`:
+Aqui está um exemplo simples do que você pode encontrar. Quando vocẽ estiver usando Git mais a fundo, contudo, você poderá ver muito mais informações com `git remote show`
 
 	$ git remote show origin
 	* remote origin
@@ -823,20 +823,20 @@ O anterior é um resultado simples que você talvez encontre por aí. Entretanto
 	  Local branch pushed with 'git push'
 	    master:master
 
-Este comando mostra qual branch é automaticamente pushed quando você roda `git push` em determinadas branches. Ele também mostra quais branches remotas que estão no servidor você não tem, quais branches remotas você tem e que foram removidos do servidor, e multiplas branches que são automaticamente merged quando você roda `git pull`.
+Este comando mostra qual branch será automaticamente enviado quando você executar `git push` em certos branches. Ele ainda mostra a você quais branches remotos do servidor você ainda não tem, quais branches remotos você tem que foram removidos do servidor, e múltiplos branches que vocẽ automaticamente mesclou quando executou `git pull`.
 
 ### Removendo e Renomeando Remotos ###
 
-Se você quiser renomear uma referência, em versões novas do Git você pode rodar `git remote rename` para modificar um apelido de um remoto. Por exemplo, se você quiser renomear `pb` para `paul`, você pode com `git remote rename`:
+Se você quer renomear uma referência, na mais nova versão do Git você pode executar `git remote rename` para mudar o nome do remoto. Por exemplo, se você quer renomear `pb` para `paul`, vocẽ pode faze-lo com `git remote rename`:
 
 	$ git remote rename pb paul
 	$ git remote
 	origin
 	paul
 
-É válido mencionar que isso modifica também os nomes das branches no servidor remoto. O que costumava ser referenciado como `pb/master` agora é `paul/master`.
+Isto merece ser mencionado que estas muda os nomes dos seus branches remotos, também. O que era referenciado em `pb/master` agora é em `paul/master`
 
-Se você quiser remover uma referência por qualquer razão — você moveu de servidor ou não está mais usando um mirror específico, ou talvez um contribuidor não está mais contribuindo — você usa `git remote rm`:
+Se você quer remover uma referência por alguma razão — você moveu o servidor ou não está mais usando um espelho em particular, ou aconteceu de um contribuidor não estar mais contribuindo — você pode usar `git remote rm`:
 
 	$ git remote rm paul
 	$ git remote
