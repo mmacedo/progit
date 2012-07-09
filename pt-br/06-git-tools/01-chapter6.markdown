@@ -105,7 +105,7 @@ Para ver a informação do reflog formatada como a saída do `git log`, você po
 	$ git log -g master
 	commit 734713bc047d87bf7eac9674765ae793478c50d3
 	Reflog: master@{0} (Scott Chacon <schacon@gmail.com>)
-	Reflog message: commit: fixed refs handling, added gc auto, updated 
+	Reflog message: commit: fixed refs handling, added gc auto, updated
 	Author: Scott Chacon <schacon@gmail.com>
 	Date:   Fri Jan 2 18:32:33 2009 -0800
 
@@ -129,10 +129,10 @@ Suponha que você veja o histórico do seu projeto:
 	$ git log --pretty=format:'%h %s' --graph
 	* 734713b fixed refs handling, added gc auto, updated tests
 	*   d921970 Merge commit 'phedders/rdocs'
-	|\  
+	|\
 	| * 35cfb2b Some rdoc changes
 	* | 1c002dd added some blame and merge stuff
-	|/  
+	|/
 	* 1c36188 ignore *.gem
 	* 9b29157 add open3_detach to gemspec file list
 
@@ -190,7 +190,7 @@ Agora que você pode especificar commits individuais, vamos ver como especificar
 
 A especificação de intervalo mais comum é a sintaxe de ponto-duplo. Isso basicamente pede ao Git para encontrar um intervalo de commits que é acessível a partir de um commit, mas não são acessível a partir de outro. Por exemplo, digamos que você tem um histórico de commits como a Figure 6-1.
 
-Insert 18333fig0601.png 
+Insert 18333fig0601.png
 Figure 6-1. Exemplo de histórico de seleção de intervalo
 
 Você quer ver o que tem no seu branch experiment que ainda não foi feito o merge no branch master. Você pede ao Git para mostrar um log de apenas esses commits com `master..experiment` — isso significa "todos os commits acessíveis por experiment que não são acessíveis por master." Para deixar os exemplos mais breves e claros, vou usar as letras dos objetos dos commits do diagrama no lugar da saída real do log na ordem que eles seriam mostrados:
@@ -248,7 +248,7 @@ Uma opção comum para usar com o comando `log` nesse caso é `--left-right`, qu
 	> D
 	> C
 
-Com essas ferramentas, você pode informar o Git mais facilmente qual ou quais commits você quer inspecionar. 
+Com essas ferramentas, você pode informar o Git mais facilmente qual ou quais commits você quer inspecionar.
 
 ## Área de Seleção Interativa ##
 
@@ -264,9 +264,9 @@ Se você executar `git add` com a opção `-i` ou `--interactive`, Git entra em 
 	*** Commands ***
 	  1: status     2: update      3: revert     4: add untracked
 	  5: patch      6: diff        7: quit       8: help
-	What now> 
+	What now>
 
-Você pode ver que esse comando lhe mostra uma visão muito diferente da sua área de seleção — basicamente a mesma informação que você recebe com `git status` mas um pouco mais sucinto e informativo. Ele lista as modificações que você colocou na área de seleção à esquerda e as modificações que estão fora à direita. 
+Você pode ver que esse comando lhe mostra uma visão muito diferente da sua área de seleção — basicamente a mesma informação que você recebe com `git status` mas um pouco mais sucinto e informativo. Ele lista as modificações que você colocou na área de seleção à esquerda e as modificações que estão fora à direita.
 
 Depois disso vem a seção Commands. Aqui você pode fazer uma série de coisas, incluindo adicionar arquivos na área de seleção, retirar arquivos, adicionar partes de arquivos, adicionar arquivos não rastreados, e ver diffs de o que já foi adicionado.
 
@@ -292,7 +292,7 @@ Para adicionar os arquivos TODO e index.html, você pode digitar os números:
 
 O `*` ao lado de cada arquivos significa que o arquivo está selecionado para ser adicionado. Se você pressionar Enter sem digitar nada em `Update>>`, Git pega tudo que esta selecionado e adiciona na área de seleção para você:
 
-	Update>> 
+	Update>>
 	updated 2 paths
 
 	*** Commands ***
@@ -374,7 +374,7 @@ No Git também é possível adicionar certas partes de arquivos e deixar o resto
 	   end
 
 	   def blame(path)
-	Stage this hunk [y,n,a,d,/,j,J,g,e,?]? 
+	Stage this hunk [y,n,a,d,/,j,J,g,e,?]?
 
 Você tem várias opções neste momento. Digitando `?` exibe uma lista do que você pode fazer:
 
@@ -403,7 +403,7 @@ Geralmente, você informará `y` ou `n` se você quer adicionar cada parte, mas 
 
 O status do arquivo simplegit.rb é interessante. Ele lhe mostra que algumas linhas foram adicionadas e algumas estão fora. Você adicionou esse arquivo parcialmente. Neste momento, você pode sair do script de modo interativo e executar `git commit` para fazer o commit parcial dos arquivos adicionados.
 
-Finalmente, você não precisa estar no modo interativo para adicionar um arquivo parcialmente — você pode executar o mesmo script usando `git add -p` ou `git add --patch` na linha de comando. 
+Finalmente, você não precisa estar no modo interativo para adicionar um arquivo parcialmente — você pode executar o mesmo script usando `git add -p` ou `git add --patch` na linha de comando.
 
 ## Fazendo Stash ##
 
@@ -712,7 +712,7 @@ Digamos que você importou arquivos de outro sistema de controle de versão e el
 	Rewrite 856f0bf61e41a27326cdae8f09fe708d679f596f (12/12)
 	Ref 'refs/heads/master' was rewritten
 
-Agora a sua nova raiz do projeto é o que estava no subdiretório `trunk`. Git também apagará automaticamente os commits que não afetaram o subdiretório. 
+Agora a sua nova raiz do projeto é o que estava no subdiretório `trunk`. Git também apagará automaticamente os commits que não afetaram o subdiretório.
 
 #### Alterando o Endereço de E-Mail Globalmente ####
 
@@ -738,7 +738,7 @@ Git também fornece algumas ferramentas para lhe ajudar a depurar problemas em s
 
 Se você encontrar um erro no seu código e deseja saber quando e por quê ele foi inserido, anotação de arquivo é muitas vezes a melhor ferramenta. Ele mostra qual commit foi o último a modificar cada linha de qualquer arquivo. Portanto, se você ver que um método no seu código está com problemas, você pode anotar o arquivo com `git blame` para ver quando cada linha do método foi editada por último e por quem. Esse exemplo usa a opção `-L` para limitar a saída entre as linhas 12 e 22:
 
-	$ git blame -L 12,22 simplegit.rb 
+	$ git blame -L 12,22 simplegit.rb
 	^4832fe2 (Scott Chacon  2008-03-15 10:31:28 -0700 12)  def show(tree = 'master')
 	^4832fe2 (Scott Chacon  2008-03-15 10:31:28 -0700 13)   command("git show #{tree}")
 	^4832fe2 (Scott Chacon  2008-03-15 10:31:28 -0700 14)  end
@@ -746,7 +746,7 @@ Se você encontrar um erro no seu código e deseja saber quando e por quê ele f
 	9f6560e4 (Scott Chacon  2008-03-17 21:52:20 -0700 16)  def log(tree = 'master')
 	79eaf55d (Scott Chacon  2008-04-06 10:15:08 -0700 17)   command("git log #{tree}")
 	9f6560e4 (Scott Chacon  2008-03-17 21:52:20 -0700 18)  end
-	9f6560e4 (Scott Chacon  2008-03-17 21:52:20 -0700 19) 
+	9f6560e4 (Scott Chacon  2008-03-17 21:52:20 -0700 19)
 	42cf2861 (Magnus Chacon 2008-04-13 10:45:01 -0700 20)  def blame(path)
 	42cf2861 (Magnus Chacon 2008-04-13 10:45:01 -0700 21)   command("git blame #{path}")
 	42cf2861 (Magnus Chacon 2008-04-13 10:45:01 -0700 22)  end
@@ -755,8 +755,8 @@ Observe que o primeiro campo é o SHA-1 parcial do commit que alterou a linha pe
 
 Outra coisa legal sobre Git é que ele não rastreia mudança de nome explicitamente. Ele grava os snapshots e então tenta descobrir o que foi renomeado implicitamente, após o fato. Uma das características interessantes disso é que você também pode pedir que ele descubra qualquer tipo de mudança de código. Se você informar `-C` para `git blame`, Git analisa o arquivo que você está anotando e tenta descobrir de onde vieram originalmente os trechos de código, se eles foram copiados de outro lugar. Recentemente, eu estava refatorando um arquivo chamado `GITServerHandler.m` em vários arquivos, um deles era `GITPackUpload.m`. Ao usar "blame" `GITPackUpload.m` com a opção `-C`, eu podia ver de onde vinham os trechos de código originalmente:
 
-	$ git blame -C -L 141,153 GITPackUpload.m 
-	f344f58d GITServerHandler.m (Scott 2009-01-04 141) 
+	$ git blame -C -L 141,153 GITPackUpload.m
+	f344f58d GITServerHandler.m (Scott 2009-01-04 141)
 	f344f58d GITServerHandler.m (Scott 2009-01-04 142) - (void) gatherObjectShasFromC
 	f344f58d GITServerHandler.m (Scott 2009-01-04 143) {
 	70befddd GITServerHandler.m (Scott 2009-03-22 144)         //NSLog(@"GATHER COMMI
@@ -853,7 +853,7 @@ Agora você tem um projeto do Rack no subdiretório `rack` dentro do seu projeto
 
 Primeiro você percebe o arquivo `.gitmodules`. Esse é um arquivo de configuração que guarda o mapeamento entre a URL do projeto e o subdiretório local que você usou:
 
-	$ cat .gitmodules 
+	$ cat .gitmodules
 	[submodule "rack"]
 	      path = rack
 	      url = git://github.com/chneukirchen/rack.git

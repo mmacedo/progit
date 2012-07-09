@@ -12,7 +12,7 @@ Caso você esteja iniciando o monitoramento de um projeto existente com Git, voc
 
 	$ git init
 
-Isso cria um novo subdiretório chamado .git que contem todos os arquivos necessários de seu repositório — um esqueleto de repositório Git. Neste ponto, nada em seu projeto é monitorado. (Veja o Capítulo 9 para maiores informações sobre quais arquivos estão contidos no diretório `.git` que foi criado.)  
+Isso cria um novo subdiretório chamado .git que contem todos os arquivos necessários de seu repositório — um esqueleto de repositório Git. Neste ponto, nada em seu projeto é monitorado. (Veja o Capítulo 9 para maiores informações sobre quais arquivos estão contidos no diretório `.git` que foi criado.)
 
 Caso você queira começar a controlar o versionamento dos arquivos existentes (diferente de um diretório vazio), voce provavelmente deve começar a monitorar esses arquivos e fazer um commit inicial. Você pode realizar isso com poucos comandos `git add` que especificam quais arquivos você quer monitorar, seguido de um commit:
 
@@ -46,7 +46,7 @@ Lembre-se que cada arquivo em seu diretório de trabalho pode estar em um de doi
 
 Conforme você edita esses arquivos, o Git passa a vê-los como modificados, porque você os alterou desde seu último commit. Você seleciona esses arquivos modificados e então faz o commit de todas as alterações selecionadas e o ciclo se repete. Este ciclo é apresentado na Figura 2-1.
 
-Insert 18333fig0201.png 
+Insert 18333fig0201.png
 Figura 2-1. O ciclo de vida dos status de seus arquivos
 
 ### Verificando o Status de Seus Arquivos ###
@@ -121,7 +121,7 @@ O arquivo benchmarks.rb aparece sob a seção chamada “Changed but not updated
 
 Ambos os arquivos estão selecionados e serão consolidados no seu próximo commit. Neste momento, vamos supor que você lembrou de uma mudança que queria fazer no arquivo benchmarks.rb antes de comitá-lo. Você o abre novamente e faz a mudança, e então está pronto para commitar. No entanto, vamos rodar `git status` mais uma vez:
 
-	$ vim benchmarks.rb 
+	$ vim benchmarks.rb
 	$ git status
 	# On branch master
 	# Changes to be committed:
@@ -251,7 +251,7 @@ Como um outro exemplo, se você selecionar o arquivo benchmarks.rb e então edit
 
 Agora pode utiliar o `git diff` para ver o que ainda não foi selecionado
 
-	$ git diff 
+	$ git diff
 	diff --git a/benchmarks.rb b/benchmarks.rb
 	index e445e28..86b2f7c 100644
 	--- a/benchmarks.rb
@@ -259,7 +259,7 @@ Agora pode utiliar o `git diff` para ver o que ainda não foi selecionado
 	@@ -127,3 +127,4 @@ end
 	 main()
 
-	 ##pp Grit::GitRuby.cache_client.stats 
+	 ##pp Grit::GitRuby.cache_client.stats
 	+# test line
 	and git diff --cached to see what you’ve staged so far:
 	$ git diff --cached
@@ -274,7 +274,7 @@ Agora pode utiliar o `git diff` para ver o que ainda não foi selecionado
 	+        run_code(x, 'commits 1') do
 	+          git.commits.size
 	+        end
-	+              
+	+
 	        run_code(x, 'commits 2') do
 	          log = git.commits('master', 15)
 	          log.size
@@ -297,7 +297,7 @@ O editor mostra o seguinte texto (este é um exemplo da tela do Vim):
 	#   (use "git reset HEAD <file>..." to unstage)
 	#
 	#       new file:   README
-	#       modified:   benchmarks.rb 
+	#       modified:   benchmarks.rb
 	~
 	~
 	~
@@ -403,7 +403,7 @@ No entanto, isso é equivalente a rodar algo como:
 
 	$ mv README.txt README
 	$ git rm README.txt
-	$ git add README 
+	$ git add README
 
 O Git descobre que o arquivo foi renomeado implicitamente, então ele não se importa se você renomeou por este caminho ou com o comando `mv`. A única diferença real é que o comando `mv` é mais conveniente, executa três passos de uma vez. O mais importante, você pode usar qualquer ferramenta para renomear um arquivo, e usar add/rm depois, antes de consolidar com o commit.
 
@@ -483,7 +483,7 @@ Uma das opções mais úteis é `-p`, que mostra o diff introduzido em cada comm
 Esta opção mostra a mesma informação mas com um diff diretamente seguido de cada entrada. Isso é muito útil para revisão de código ou para navegar rapidamente e saber o que aconteceu durante uma série de commits que um colaborador adicionou.
 Você pode ainda usar uma série de opções de simplificadores com `git log`. Por exemplo, se você quiser ver algumas estatísticas abreviadas para cada commit, você pode usar a opção `--stat`
 
-	$ git log --stat 
+	$ git log --stat
 	commit ca82a6dff817ec66f44342007202690a93763949
 	Author: Scott Chacon <schacon@gee-mail.com>
 	Date:   Mon Mar 17 21:52:11 2008 -0700
@@ -554,12 +554,12 @@ A opção e formato `oneline` é particularmente útil com outra opção chamada
 	$ git log --pretty=format:"%h %s" --graph
 	* 2d3acf9 ignore errors from SIGCHLD on trap
 	*  5e3ee11 Merge branch 'master' of git://github.com/dustin/grit
-	|\  
+	|\
 	| * 420eac9 Added a method for getting the current branch.
 	* | 30e367c timeout code and tests
 	* | 5a09431 add timeout protection to grit
 	* | e1193f8 support for heads with slashes in them
-	|/  
+	|/
 	* d6016bc require time for xmlschema
 	*  11d191e Merge branch 'defunkt' into local
 
@@ -616,7 +616,7 @@ Dos 20.000 commits mais novos no histórico do código fonte do Git, este comand
 
 Se você quiser usar uma ferramenta gráfica para visualizar seu histórico de commit, você pode querer dar uma olhada em um programa Tcl/Tk chamado gitk que é distribuido com o Git. Gitk é basicamente uma ferramente visual para `git log`, e ele aceita aproximadamente todas as opções de filtros que `git log` aceita. Se você digitar gitk na linha de comando em seu projeto, você deve ver algo como a Figura 2-2.
 
-Insert 18333fig0202.png 
+Insert 18333fig0202.png
 Figure 2-2. O visualizador de histórico gitk
 
 Você pode ver o histórico de commit na metade de cima da janela juntamente com um agradável gráfico. O visualizador de diff na metade de baixo da janela mostra a você as mudanças introduzidas em qualquer commit que você clicar.
@@ -639,7 +639,7 @@ Como exemplo, se você fez um commit e esqueceu de adicionar na área de seleç�
 
 	$ git commit -m 'initial commit'
 	$ git add forgotten_file
-	$ git commit --amend 
+	$ git commit --amend
 
 Todos esses três comandos resultam em um único commit — o segundo comando substitui os resultados do primeiro.
 
@@ -659,7 +659,7 @@ As duas próximas seções mostram como trabalhar nas suas modificações na ár
 
 Logo abaixo do texto “Changes to be committed”, ele diz use `git reset HEAD <file>...` para retirar (use `git reset HEAD <file>...` to unstage). Então, vamos usar esse conselho para retirar o arquivo benchmarks.rb:
 
-	$ git reset HEAD benchmarks.rb 
+	$ git reset HEAD benchmarks.rb
 	benchmarks.rb: locally modified
 	$ git status
 	# On branch master
@@ -699,7 +699,7 @@ Ele diz explicitamente como descartar as modificações que você fez (pelo meno
 	#       modified:   README.txt
 	#
 
-Você pode ver que as alterações foram revertidas. Perceba também que esse comando é perigoso: qualquer alteração que você fez nesse arquivo foi desfeita — você acabou de copiar outro arquivo sobre ele. Nunca use esse comando a menos que você tenha certeza absoluta que não quer o arquivo. Se você só precisa tirá-lo do caminho, vamos falar sobre stash e branch no próximo capítulo; geralmente essas são maneiras melhores de agir. 
+Você pode ver que as alterações foram revertidas. Perceba também que esse comando é perigoso: qualquer alteração que você fez nesse arquivo foi desfeita — você acabou de copiar outro arquivo sobre ele. Nunca use esse comando a menos que você tenha certeza absoluta que não quer o arquivo. Se você só precisa tirá-lo do caminho, vamos falar sobre stash e branch no próximo capítulo; geralmente essas são maneiras melhores de agir.
 
 Lembre-se, qualquer coisa que foi incluída com um commit no Git quase sempre pode ser recuperada. Até mesmo commits que estavam em branches que foram apagados ou commits que foram sobrescritos com um commit `--amend` podem ser recuperados (consulte o Capítulo 9 para recuperação de dados). No entanto, qualquer coisa que você perde que nunca foi feito commit provavelmente nunca mais será visto novamente.
 
@@ -720,7 +720,7 @@ Para ver quais servidores remotos você configurou, você pode executar o comand
 	Receiving objects: 100% (595/595), 73.31 KiB | 1 KiB/s, done.
 	Resolving deltas: 100% (255/255), done.
 	$ cd ticgit
-	$ git remote 
+	$ git remote
 	origin
 
 Você também pode especificar `-v`, que mostra a você a URL que o Git armazenou para o nome para maiores informações:
@@ -784,7 +784,7 @@ Quando você tem seu projeto no ponto que vocẽ quer compartilhar, você tem qu
 
 Este comando funciona somente se vocẽ clonou de um servidor que você tem permissão de escrita e se ninguém enviou nesse meio tempo. Se vocẽ e outro alguém clonam ao mesmo tempo e ele envia para o upstream e então você envia para o upstream, seu envio será certamente regeitado. Você terá que baixar os trabalhos dele primeiro e incorporá-lo aos seus antes de você ser permitido a enviar. Veja capítulo 3 para informação mais detalhada sobre como enviar para servidores remotos.
 
-### Inspecionando um Remoto ###	
+### Inspecionando um Remoto ###
 
 Se você quer ver mais informações sobre um remoto em particular, você pode usar o comando `git remote show [nome-do-remoto]`. Se você executar este comando com um nome em particular, como `origin`, você terá algo como isso:
 
@@ -797,7 +797,7 @@ Se você quer ver mais informações sobre um remoto em particular, você pode u
 	    master
 	    ticgit
 
-Ele lista a URL para o repositório remoto assim como informações sobre seus branches. O comando fala a você que se vocẽ está no branch master e vocẽ executar `git pull`, ele automaticamente mesclará o branch master do remoto depois que ele buscar todas as referênciar. Ele ainda lista todas as referências do remoto que ele baixou. 
+Ele lista a URL para o repositório remoto assim como informações sobre seus branches. O comando fala a você que se vocẽ está no branch master e vocẽ executar `git pull`, ele automaticamente mesclará o branch master do remoto depois que ele buscar todas as referênciar. Ele ainda lista todas as referências do remoto que ele baixou.
 
 Aqui está um exemplo simples do que você pode encontrar. Quando vocẽ estiver usando Git mais a fundo, contudo, você poderá ver muito mais informações com `git remote show`
 
@@ -998,7 +998,7 @@ Agora, suponha que você esqueceu de criar a tag v1.2 no projeto, que foi no com
 
 Você pode ver que foi criada a tag para o commit:
 
-	$ git tag 
+	$ git tag
 	v0.1
 	v1.2
 	v1.3
