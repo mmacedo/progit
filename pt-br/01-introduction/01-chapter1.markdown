@@ -15,16 +15,16 @@ O método preferido de controle de versão por muitas pessoas é copiar arquivos
 Para lidar com esse problema, alguns programadores desenvolveram há muito tempo VCSs locais que armazenavam todas as alterações dos arquivos sob controle de revisão (ver Figura 1-1).
 
 Insert 18333fig0101.png
-Figura 1-1. Diagrama de controle de versão local
+Figura 1-1. Diagrama de controle de versão local.
 
 Uma das ferramentas de VCS mais populares foi um sistema chamado rcs, que ainda é distribuído em muitos computadores até hoje. Até o popular Mac OS X inclui o comando rcs quando se instala o kit de ferramentas para desenvolvedores. Basicamente, essa ferramenta mantém conjuntos de patches (ou seja, as diferenças entre os arquivos) entre cada mudança em um formato especial; a partir daí qualquer arquivo em qualquer ponto na linha do tempo pode ser recriado ao juntar-se todos os patches.
 
 ### Sistemas de Controle de Versão Centralizados ###
 
-Outro grande problema que as pessoas encontram estava na necessidade de trabalhar em conjunto com outros desenvolvedores, que usam outros sistemas. Para lidar com isso, foram desenvolvidos Sistemas de Controle de Versão Centralizados (Centralized Version Control System ou CVCS). Esses sistemas - como por exemplo o CVS, Subversion e Perforce - possuem um único servidor central que contém todos os arquivos versionados e vários clientes que podem resgatar (check out) os arquivos do servidor. Por muitos anos, esse foi o modelo padrão para controle de versão.
+Outro grande problema que as pessoas encontram estava na necessidade de trabalhar em conjunto com outros desenvolvedores, que usam outros sistemas. Para lidar com isso, foram desenvolvidos Sistemas de Controle de Versão Centralizados (Centralized Version Control System ou CVCS). Esses sistemas - como por exemplo o CVS, Subversion e Perforce - possuem um único servidor central que contém todos os arquivos versionados e vários clientes que podem resgatar os arquivos do servidor. Por muitos anos, esse foi o modelo padrão para controle de versão.
 
 Insert 18333fig0102.png
-Figura 1-2. Diagrama de Controle de Versão Centralizado
+Figura 1-2. Diagrama de controle de versão centralizado.
 
 Tal arranjo oferece muitas vantagens, especialmente sobre VCSs locais. Por exemplo, todo mundo pode ter conhecimento razoável sobre o que os outros desenvolvedores estão fazendo no projeto. Administradores têm controle específico sobre quem faz o quê; sem falar que é bem mais fácil administrar um CVCS do que lidar com bancos de dados locais em cada cliente.
 
@@ -32,16 +32,16 @@ Entretanto, esse arranjo também possui grandes desvantagens. O mais óbvio é q
 
 ### Sistemas de Controle de Versão Distribuídos ###
 
-É aí que surgem os Sistemas de Controle de Versão Distribuídos (Distributed Version Control System ou DVCS). Em um DVCS (tais como Git, Mercurial, Bazaar or Darcs), os clientes não apenas fazem cópias das últimas versões dos arquivos: eles são cópias completas do repositório. Assim, se um servidor falha, qualquer um dos repositórios dos clientes pode ser copiado de volta para o servidor para restaurá-lo. Cada checkout (resgate) é na prática um backup completo de todos os dados (veja Figura 1-3).
+É aí que surgem os Sistemas de Controle de Versão Distribuídos (Distributed Version Control System ou DVCS). Em um DVCS (tais como Git, Mercurial, Bazaar or Darcs), os clientes não apenas fazem cópias das últimas versões dos arquivos: eles são cópias completas do repositório. Assim, se um servidor falha, qualquer um dos repositórios dos clientes pode ser copiado de volta para o servidor para restaurá-lo. Cada atualização da sua cópia local é na prática um backup completo de todos os dados (veja Figura 1-3).
 
 Insert 18333fig0103.png
-Figura 1-3. Diagrama de Controle de Versão Distribuído
+Figura 1-3. Diagrama de controle de versão distribuído.
 
-Além disso, muitos desses sistemas lidam muito bem com o aspecto de ter vários repositórios remotos com os quais eles podem colaborar, permitindo que você trabalhe em conjunto com diferentes grupos de pessoas, de diversas maneiras, simultaneamente no mesmo projeto. Isso permite que você estabeleça diferentes tipos de workflow (fluxo de trabalho) que não são possíveis em sistemas centralizados, como por exemplo o uso de modelos hierárquicos.
+Além disso, muitos desses sistemas lidam muito bem com o aspecto de ter vários repositórios remotos com os quais eles podem colaborar, permitindo que você trabalhe em conjunto com diferentes grupos de pessoas, de diversas maneiras, simultaneamente no mesmo projeto. Isso permite que você estabeleça diferentes fluxos de trabalho (também conhecidos como workflows) que não são possíveis em sistemas centralizados, como por exemplo o uso de modelos hierárquicos.
 
 ## Uma Breve História do Git ##
 
-Assim como muitas coisas boas na vida, o Git começou com um tanto de destruição criativa e controvérsia acirrada. O kernel (núcleo) do Linux é um projeto de software de código aberto de escopo razoavelmente grande. Durante a maior parte do período de manutenção do kernel do Linux (1991-2002), as mudanças no software eram repassadas como patches e arquivos compactados. Em 2002, o projeto do kernel do Linux começou a usar um sistema DVCS proprietário chamado BitKeeper.
+Assim como muitas coisas boas na vida, o Git começou com um tanto de destruição criativa e controvérsias acirradas. O kernel (núcleo) do Linux é um projeto de software de código aberto de escopo razoavelmente grande. Durante a maior parte do período de manutenção do kernel do Linux (1991-2002), as mudanças no software eram repassadas como patches e arquivos compactados. Em 2002, o projeto do kernel do Linux começou a usar um sistema DVCS proprietário chamado BitKeeper.
 
 Em 2005, o relacionamento entre a comunidade que desenvolvia o kernel e a empresa que desenvolvia comercialmente o BitKeeper se desfez, e o status de isento-de-pagamento da ferramenta foi revogado. Isso levou a comunidade de desenvolvedores do Linux (em particular Linus Torvalds, o criador do Linux) a desenvolver sua própria ferramenta baseada nas lições que eles aprenderam ao usar o BitKeeper. Alguns dos objetivos do novo sistema eram:
 
@@ -51,20 +51,20 @@ Em 2005, o relacionamento entre a comunidade que desenvolvia o kernel e a empres
 *	Totalmente distribuído
 *	Capaz de lidar eficientemente com grandes projetos como o kernel do Linux (velocidade e volume de dados)
 
-Desde sua concepção em 2005, o Git evoluiu e amadureceu a ponto de ser um sistema fácil de usar e ainda assim mantém essas qualidades iniciais. É incrivelmente rápido, bastante eficiente com grandes projetos e possui um sistema impressionante de branching para desenvolvimento não-linear (Veja no Capítulo 3).
+Desde sua concepção em 2005, o Git evoluiu e amadureceu a ponto de ser um sistema fácil de usar e ainda assim mantém essas qualidades iniciais. É incrivelmente rápido, bastante eficiente com grandes projetos e possui um sistema impressionante de branching para desenvolvimento não-linear (veja no Capítulo 3).
 
 ## Noções Básicas de Git ##
 
-Enfim, em poucas palavras, o que é Git? Essa é uma seção importante para assimilar, pois se você entender o que é Git e os fundamentos de como ele funciona, será muito mais fácil utilizá-lo de forma efetiva. À medida que você aprende a usar o Git, tente não pensar no que você já sabe sobre outros VCSs como Subversion e Perforce; assim você consegue escapar de pequenas confusões que podem surgir ao usar a ferramenta. Apesar de possuir uma interface parecida, o Git armazena e pensa sobre informação de uma forma totalmente diferente desses outros sistemas; entender essas diferenças lhe ajudará a não ficar confuso ao utilizá-lo.
+Enfim, em poucas palavras, o que é Git? Essa é uma seção importante para assimilar, pois se você entender o que é Git e os fundamentos de como ele funciona, será muito mais fácil utilizá-lo de forma efetiva. À medida que você aprende a usar o Git, tente não pensar no que você já sabe sobre outros VCSs como Subversion e Perforce; assim você consegue escapar de pequenas confusões que podem surgir ao usar a ferramenta. Apesar de possuir uma interface parecida, o Git armazena e pensa na informação de uma forma totalmente diferente desses outros sistemas; entender essas diferenças lhe ajudará a não ficar confuso ao utilizá-lo.
 
-### Snapshots, E Não Diferenças  ###
+### Snapshots, Não Diferenças  ###
 
-A maior diferença entre Git e qualquer outro VCS (Subversion e similares inclusos) está na forma que o Git trata os dados. Conceitualmente, a maior parte dos outros sistemas armazena informação como uma lista de mudanças por arquivo. Esses sistemas (CVS, Subversion, Perforce, Bazaar, etc.) tratam a informação que mantém como um conjunto de arquivos e as mudanças feitas a cada arquivo ao longo do tempo, conforme ilustrado na Figura 1.4.
+A maior diferença entre Git e qualquer outro VCS (Subversion e similares inclusos) está na forma que o Git trata os dados. Conceitualmente, a maior parte dos outros sistemas armazena informação como uma lista de mudanças por arquivo. Esses sistemas (CVS, Subversion, Perforce, Bazaar, etc.) pensam na informação que eles mantêm como um conjunto de arquivos e as mudanças feitas a cada arquivo ao longo do tempo, conforme ilustrado na Figura 1-4.
 
 Insert 18333fig0104.png
 Figura 1-4. Outros sistemas costumam armazenar dados como mudanças em uma versão inicial de cada arquivo.
 
-Git não pensa ou armazena sua informação dessa forma. Ao invés disso, o Git considera que os dados são como um conjunto de snapshots (captura de algo em um determinado instante, como em uma foto) de um mini-sistema de arquivos. Cada vez que você salva ou consolida (commmit) o estado do seu projeto no Git, é como se ele tirasse uma foto de todos os seus arquivos naquele momento e armazenasse uma referência para essa captura. Para ser eficiente, se nenhum arquivo foi alterado, a informação não é armazenada novamente - apenas um link para o arquivo idêntico anterior que já foi armazenado. A figura 1-5 mostra melhor como que o Git lida com seus dados.
+Git não pensa ou armazena sua informação dessa forma. Ao invés disso, o Git considera que os dados são como um conjunto de snapshots (captura de algo em um determinado instante, como em uma foto) de um mini-sistema de arquivos. Cada vez que você modifica ou salva o estado do seu projeto no Git, é como se ele tirasse uma foto de todos os seus arquivos naquele momento e armazenasse uma referência para essa captura. Para ser eficiente, se nenhum arquivo foi alterado, a informação não é armazenada novamente - apenas um link para o arquivo idêntico anterior que já foi armazenado. A forma como Git pensa nos seus dados é como na Figura 1-5.
 
 Insert 18333fig0105.png
 Figura 1-5. Git armazena dados como snapshots do projeto ao longo do tempo.
@@ -97,36 +97,36 @@ Isso faz com que o uso do Git seja uma alegria no sentido de permitir que façam
 
 ### Os Três Estados ###
 
-Agora preste atenção. Essa é a coisa mais importante pra se lembrar sobre Git se você quiser que o resto do seu aprendizado seja tranquilo. Git faz com que seus arquivos sempre estejam em um dos três estados fundamentais: consolidado (committed), modificado (modified) e preparado (staged). Dados são ditos consolidados quando estão seguramente armazenadas em sua base de dados locais. Modificado trata de um arquivo que sofreu mudanças mas que ainda não foi consolidado na base de dados. Um arquivo é tido como preparado quando você marca um arquivo modificado em sua versão corrente para que ele faça parte do snapshot do próximo commit (consolidação).
+Agora preste atenção. Essa é a coisa mais importante pra se lembrar sobre Git se você quiser que o resto do seu aprendizado seja tranquilo. Git faz com que seus arquivos sempre estejam em um dos três estados fundamentais: commited (consolidado), modified (modificado) e staged (preparado). Dados são ditos commited quando estão seguramente armazenados em sua base de dados locais. Modified trata de um arquivo que sofreu mudanças mas que ainda não foi consolidado na base de dados (com um commit). Um arquivo é tido como staged quando você marca um arquivo modificado em sua versão corrente para que ele faça parte do snapshot do próximo commit.
 
-Isso nos traz para as três seções principais de um projeto do Git: o diretório do Git (git directory, repository), o diretório de trabalho (working directory), e a área de preparação (staging area).
+Isso nos leva para as três seções principais de um projeto no Git: o Git directory (pasta do Git), o working directory (pasta de trabalho), e a staging area (área de preparação).
 
 Insert 18333fig0106.png
-Figura 1-6. Diretório de trabalho, área de preparação, e o diretório do Git.
+Figura 1-6. Working directory, staging area e Git directory.
 
-O diretório do Git é o local onde o Git armazena os metadados e o banco de objetos de seu projeto. Esta é a parte mais importante do Git, e é a parte copiada quando você clona um repositório de outro computador.
+O Git directory é o local onde o Git armazena os metadados e o banco de objetos de seu projeto. Esta é a parte mais importante do Git, e é a parte copiada quando você clona um repositório de outro computador.
 
-O diretório de trabalho é um único checkout de uma versão do projeto. Estes arquivos são obtidos a partir da base de dados comprimida no diretório do Git e colocados em disco para que você possa utilizar ou modificar.
+O working directory é uma cópia de uma versão do projeto. Estes arquivos são obtidos a partir da base de dados comprimida no Git directory e colocados em disco para que você possa utilizar ou modificar.
 
-A área de preparação é um simples arquivo, geralmente contido no seu diretório Git, que armazena informações sobre o que irá em seu próximo commit. É bastante conhecido como índice (index), mas está se tornando padrão chamá-lo de área de preparação.
+A staging area é um simples arquivo, geralmente contido no seu Git directory, que armazena informações sobre o que irá em seu próximo commit. É bastante conhecida como index (índice), mas está se tornando padrão chamá-la de staging area.
 
 O workflow básico do Git pode ser descrito assim:
 
-1.	Você modifica arquivos no seu diretório de trabalho.
-2.	Você seleciona os arquivos, adicionando snapshots deles para sua área de preparação.
-3.	Você faz um commit, que leva os arquivos como eles estão na sua área de preparação e os armazena permanentemente no seu diretório Git.
+1.	Você modifica arquivos no seu working directory.
+2.	Você prepara os arquivos (stage), adicionando snapshots deles para sua staging area.
+3.	Você faz um commit, que leva os arquivos como eles estão na sua staging area e os armazena permanentemente no seu Git directory.
 
-Se uma versão particular de um arquivo está no diretório Git, é considerada consolidada. Caso seja modificada mas foi adicionada à área de preparação, está preparada. E se foi alterada desde que foi obtida mas não foi preparada, está modificada. No Capítulo 2, você aprenderá mais sobre estes estados e como se aproveitar deles ou pular toda a parte de preparação.
+Se uma versão particular de um arquivo está no Git directory, é considerada commited. Caso seja modificada mas foi adicionada à staging area, está staged. E se foi alterada desde que foi obtida mas não foi staged, está modified. No Capítulo 2, você aprenderá mais sobre estes estados e como se aproveitar deles ou pular toda a parte de staging.
 
 ## Instalando Git ##
 
-Vamos entender como utilizar o Git. Primeiramente você deve instalá-lo. Você pode obtê-lo de diversas formas; as duas mais comuns são instalá-lo a partir do fonte ou instalar um package (pacote) existente para sua plataforma.
+Vamos entender como utilizar o Git. Primeiro de tudo, você deve instalá-lo. Você pode obtê-lo de diversas formas, as duas mais comuns são instalá-lo a partir do fonte ou instalar um package (pacote) existente para sua plataforma.
 
 ### Instalando a Partir do Fonte ###
 
-Caso você possa, é geralmente útil instalar o Git a partir do fonte, porque será obtida a versão mais recente. Cada versão do Git tende a incluir melhoras na UI, sendo assim, obter a última versão é geralmente o melhor caminho caso você sinta-se confortável em compilar o software a partir do fonte. Também aconteceque diversas distribuições Linux contêm pacotes muito antigos; sendo assim, a não ser que você tenha uma distro (distribuição) muito atualizada ou está utilizando backports, instalar a partir do fonte pode ser a melhor aposta.
+Se você puder, é geralmente útil instalar o Git a partir do fonte, porque será obtida a versão mais recente. Cada versão do Git tende a incluir melhorias úteis na UI. Assim, obter a última versão é geralmente o melhor caminho caso você sinta-se confortável em compilar o software a partir do fonte. Também acontece que diversas distribuições Linux contêm pacotes muito antigos. Assim, a não ser que você tenha uma distro (distribuição) muito atualizada ou está utilizando backports, instalar a partir do fonte pode ser a melhor aposta.
 
-Para instalar o Git, você precisa ter as seguintes bibliotecas que o Git depende: curl, zlib, openssl, expat e libiconv. Por exemplo, se você usa um sistema que tem yum (tal como o Fedora) ou apt-get (tais como os sistemas baseados no Debian), você pode utlizar um desses comandos para instalar todas as dependências:
+Para instalar o Git, você precisa ter as seguintes bibliotecas que o Git depende: curl, zlib, openssl, expat e libiconv. Por exemplo, se você usa um sistema que tem yum (tal como o Fedora) ou apt-get (tais como sistemas baseados no Debian), você pode utlizar um desses comandos para instalar todas as dependências:
 
 	$ yum install curl-devel expat-devel gettext-devel \
 	  openssl-devel zlib-devel
@@ -166,9 +166,9 @@ Existem duas formas fáceis de se instalar Git em um Mac. A mais fácil delas é
 	http://code.google.com/p/git-osx-installer
 
 Insert 18333fig0107.png
-Figura 1-7. Instalador Git OS X
+Figura 1-7. Instalador Git para OS X.
 
-A outra forma comum é instalar o Git via MacPorts (`http://www.macports.org`). Se você tem o MacPOrts instalado, instale o Git via
+A outra forma comum é instalar o Git via MacPorts (`http://www.macports.org`). Se você tem o MacPorts instalado, instale o Git via
 
 	$ sudo port install git-core +svn +doc +bash_completion +gitweb
 
@@ -184,15 +184,15 @@ Após concluir a instalação, você terá tanto uma versão command line (linha
 
 ## Configuração Inicial do Git ##
 
-Agora que você tem o Git em seu sistema, você pode querer fazer algumas coisas para customizar seu ambiente Git. Você só precisa fazer uma vez; as configurações serão mantidas entre atualizações. Você também poderá alterá-las a qualqer momento executando os comandos novamente.
+Agora que você tem o Git em seu sistema, você pode querer fazer algumas coisas para customizar seu ambiente Git. Você só deve precisar fazer uma vez, as configurações serão mantidas entre atualizações. Você também poderá alterá-las a qualquer momento executando os comandos novamente.
 
 Git vem com uma ferramenta chamada git config que permite a você ler e definir variáveis de configuração que controlam todos os aspectos de como o Git parece e opera. Essas variáveis podem ser armazenadas em três lugares diferentes:
 
-*	arquivo `/etc/gitconfig`: Contém valores para todos usuários do sistema e todos os seus repositórios. Se você passar a opção `--system` para `git config`, ele lerá e escreverá a partir deste arquivo especificamente.
-*	arquivo `~/.gitconfig`: Específico para seu usuário. Você pode fazer o Git ler e escrever a partir deste arquivo especificamente passando a opção `--global`.
-*	arquivo de configuração no diretório git (ou seja, `.git/config`) de qualquer repositório que você está utilizando no momento: Específico para aquele único repositório. Cada nível sobrepõem o valor do nível anterior, sendo assim valores em `.git/config` triunfam sobre aqueles em `/etc/gitconfig`
+*	Arquivo `/etc/gitconfig`: Contém valores para todos usuários do sistema e todos os seus repositórios. Se você passar a opção `--system` para `git config`, ele lerá e escreverá especificamente nesse arquivo.
+*	Arquivo `~/.gitconfig`: Específico para seu usuário. Você pode fazer o Git ler e escrever especificamente nesse arquivo passando a opção `--global`.
+*	Arquivo de configuração no git directory (ou seja, `.git/config`) de qualquer repositório que você está utilizando no momento: Específico para aquele único repositório. Cada nível sobrepõem o valor do nível anterior, sendo assim valores em `.git/config` triunfam sobre aqueles em `/etc/gitconfig`
 
-Em sistemas Windows, Git procura pelo arquivo `.gitconfig` no diretório `$HOME` (`C:\Documents and Settins\$USER` para a maioria das pessoas). Também procura por /etc/gitconfig, apesar de que é relativo à raiz de MSys, que é o local onde você escolheu instalar o Git no seu sistema Windows quando executou o instalador.
+Em sistemas Windows, Git procura pelo arquivo `.gitconfig` no diretório `$HOME` (`C:\Documents and Settings\$USER` para a maioria das pessoas). Ele também procura por /etc/gitconfig, apesar de que é relativo à raiz de MSys, que é o local onde você escolheu instalar o Git no seu sistema Windows quando executou o instalador.
 
 ### Sua Identidade ###
 
@@ -201,7 +201,7 @@ A primeira coisa que você deve fazer quando instalar o Git é definir o seu nom
 	$ git config --global user.name "John Doe"
 	$ git config --global user.email johndoe@example.com
 
-Relembrando, você só precisará fazer isso uma vez caso passe a opção `--global`, pois o Git sempre usará essa informação para qualquer coisa que você faça nesse sistema. Caso você queira sobrepor estas com um nome ou endereço de e-mail diferentes para projetos específicos, você pode executar o comando sem a opção `--global` quando estiver no próprio projeto.
+Relembrando, você só precisará fazer isso uma vez caso passe a opção `--global`, pois o Git sempre usará essa informação para qualquer coisa que você faça nesse sistema. Caso você queira sobrepor estas com nome ou endereço de e-mail diferentes para projetos específicos, você pode executar o comando sem a opção `--global` quando estiver no próprio projeto.
 
 ### Seu Editor ###
 
@@ -215,7 +215,7 @@ Outra opção útil que você pode querer configurar é a ferramente padrão de 
 
 	$ git config --global merge.tool vimdiff
 
-Git aceita kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge e opendiff como ferramentas válidas para merge. Você também pode configurar uma ferramenta personalizada; veja o Capítulo 7 para maiores informações em como fazê-lo.
+Git aceita kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge, opendiff, diffuse, araxis, p4merge e tortoisemerge como ferramentas válidas para merge. Você também pode configurar uma ferramenta personalizada, veja o Capítulo 7 para maiores informações sobre como fazê-lo.
 
 ### Verificando Suas Configurações ###
 
